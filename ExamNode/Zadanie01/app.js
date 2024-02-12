@@ -1,0 +1,5 @@
+function getStackOverflow() {
+  getStackOverflow();
+}
+
+getStackOverflow();
