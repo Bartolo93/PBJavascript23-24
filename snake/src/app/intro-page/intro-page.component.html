@@ -1,1 +1,27 @@
-<p>intro-page works!</p>
+<div class="start-page">
+  <h1>{{ title }}</h1>
+  <form>
+    <input
+      name="name"
+      type="text"
+      [(ngModel)]="name"
+      placeholder="Your name"
+      (input)="checkInputs()"
+    />
+    <input
+      name="email"
+      [(ngModel)]="email"
+      placeholder="Your email"
+      (input)="checkInputs()"
+    />
+    <p class="error-message">{{ errorMessage }}</p>
+    <input
+      type="button"
+      value="START"
+      (click)="submit()"
+      (click)="changePage()"
+      [disabled]="isButtonDisabled"
+    />
+  </form>
+  <img src="../../assets/snakeImageLittleDimension.png" alt="Snake Image" />
+</div>
