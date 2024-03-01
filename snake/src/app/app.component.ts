@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class AppComponent {
-  welcomePageShouldbeVivible = true!;
+  welcomePageShouldbeVivible = true;
   userName = '';
   user = { name: '', email: '' };
 

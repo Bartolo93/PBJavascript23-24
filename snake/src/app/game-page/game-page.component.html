@@ -1,1 +1,16 @@
-<p>game-page works!</p>
+<div class="game-page">
+  <app-game-info
+    [userName]="userName"
+    [score]="score"
+    [seconds]="time.seconds"
+    [minutes]="time.minutes"
+    [hours]="time.hours"
+  ></app-game-info>
+
+  <app-snake-panel
+    (actionClicked)="handleActionClicked($event)"
+    (lineCleared)="onLineCleared($event)"
+    (updateTimer)="updateTime($event)"
+  ></app-snake-panel>
+  <button class="btn-back-to-menu" (click)="changePage()">EXIT</button>
+</div>
