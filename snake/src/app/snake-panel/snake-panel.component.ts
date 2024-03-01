@@ -84,12 +84,6 @@ export class SnakePanelComponent {
     }
   }
 
-  onLineCleared() {
-    this.score += 10;
-    this.lineCleared.emit(this.score);
-    this.handleButtonClick('Line Cleared');
-  }
-
   @Output() actionClicked = new EventEmitter<string>();
 
   handleButtonClick(action: string): void {

@@ -6,6 +6,32 @@
 <button (click)="game.actionRight()">Right</button>
 
 <br />
-<p><button (click)="game.actionStart()">Start</button></p>
-<p><button (click)="game.actionStop()">Stop</button></p>
-<p><button (click)="game.actionReset()">Reset</button></p>
+<p>
+  <button
+    (click)="game.actionStart()"
+    (click)="timerStart()"
+    (click)="handleButtonClick('Start Game')"
+  >
+    Start
+  </button>
+</p>
+<p>
+  <button
+    (click)="game.actionStop()"
+    (click)="handleButtonClick('Pause')"
+    (click)="game.actionStop()"
+    (click)="timerStop()"
+  >
+    Stop
+  </button>
+</p>
+<p>
+  <button
+    (click)="game.actionReset()"
+    (click)="handleButtonClick('Reset')"
+    (click)="game.actionReset()"
+    (click)="timerReset()"
+  >
+    Reset
+  </button>
+</p>

@@ -22,10 +22,6 @@ export class GamePageComponent {
     this.time = time;
   }
 
-  onLineCleared(score: number) {
-    this.score = score;
-  }
-
   @Input() welcomePageShouldBeVisible: boolean = false;
   @Output() pageChange = new EventEmitter<void>();
 
