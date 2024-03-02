@@ -13,4 +13,7 @@ export class GameInfoComponent {
   @Input() minutes: number = 0;
   @Input() hours: number = 0;
   @Input() score: number = 0;
+  handleFoodEaten(score: number) {
+    this.score = score;
+  }
 }

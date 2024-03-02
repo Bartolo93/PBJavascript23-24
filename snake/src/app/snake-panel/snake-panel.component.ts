@@ -1,20 +1,23 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { NgxSnakeModule } from 'ngx-snake';
 
 @Component({
   selector: 'app-snake-panel',
   standalone: true,
-  imports: [NgxSnakeModule],
+  imports: [NgxSnakeModule, BrowserModule, NgModule],
   templateUrl: './snake-panel.component.html',
   styleUrl: './snake-panel.component.scss',
 })
 export class SnakePanelComponent {
-  @Output() lineCleared = new EventEmitter<number>();
+  @Output() foodEaten = new EventEmitter<number>();
   @Output() updateTimer = new EventEmitter<{
     seconds: number;
     minutes: number;
     hours: number;
   }>();
+
   @Input() welcomePageShouldBeVisible: boolean = false;
   @Output() pageChange = new EventEmitter<void>();
 
@@ -71,7 +74,7 @@ export class SnakePanelComponent {
         minutes: this.minutes,
         hours: this.hours,
       });
-      this.lineCleared.emit(this.score);
+      this.foodEaten.emit(this.score);
     } else {
       this.isTimerRunning = false;
       this.timerStart();
@@ -80,8 +83,16 @@ export class SnakePanelComponent {
         minutes: this.minutes,
         hours: this.hours,
       });
-      this.lineCleared.emit(this.score);
+      this.foodEaten.emit(this.score);
     }
+  }
+  onFoodEaten() {
+    this.score += 1;
+    this.foodEaten.emit(this.score);
+  }
+  onGameOver() {
+    alert('game over');
+    this.timerStop();
   }
 
   @Output() actionClicked = new EventEmitter<string>();
@@ -92,10 +103,5 @@ export class SnakePanelComponent {
     } else {
       this.actionClicked.emit(action);
     }
-  }
-
-  onGameOver() {
-    alert('game over');
-    this.timerStop();
   }
 }

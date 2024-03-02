@@ -1,4 +1,8 @@
-<ngx-snake #game></ngx-snake>
+<ngx-snake
+  #game
+  (foodEaten)="onFoodEaten()"
+  (gameOver)="onGameOver()"
+></ngx-snake>
 <br />
 <button (click)="game.actionUp()">Up</button>
 <button (click)="game.actionDown()">Down</button>
