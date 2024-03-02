@@ -1,12 +1,10 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { NgxSnakeModule } from 'ngx-snake';
 
 @Component({
   selector: 'app-snake-panel',
   standalone: true,
-  imports: [NgxSnakeModule, BrowserModule, NgModule],
+  imports: [NgxSnakeModule],
   templateUrl: './snake-panel.component.html',
   styleUrl: './snake-panel.component.scss',
 })
@@ -86,22 +84,25 @@ export class SnakePanelComponent {
       this.foodEaten.emit(this.score);
     }
   }
+
+  @Output() newPoint = new EventEmitter<string>();
+
   onFoodEaten() {
     this.score += 1;
     this.foodEaten.emit(this.score);
+    this.handleButtonClick('');
   }
-  onGameOver() {
-    alert('game over');
-    this.timerStop();
-  }
-
-  @Output() actionClicked = new EventEmitter<string>();
 
   handleButtonClick(action: string): void {
     if (action != 'Reset') {
-      this.isTimerRunning === true && this.actionClicked.emit(action);
+      this.isTimerRunning === true && this.newPoint.emit(action);
     } else {
-      this.actionClicked.emit(action);
+      this.newPoint.emit(action);
     }
+  }
+
+  onGameOver() {
+    alert('Game over. You are a looser ! ');
+    this.timerStop();
   }
 }

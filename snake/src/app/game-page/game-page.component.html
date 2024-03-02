@@ -8,8 +8,8 @@
   ></app-game-info>
 
   <app-snake-panel
-    (foodEaten)="onFoodEaten($event)"
     (updateTimer)="updateTime($event)"
+    (foodEaten)="onFoodEaten($event)"
   ></app-snake-panel>
   <button class="btn-back-to-menu" (click)="changePage()">EXIT</button>
 </div>

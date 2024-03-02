@@ -28,6 +28,9 @@ export class GamePageComponent {
   changePage() {
     this.pageChange.emit();
   }
+  onFoodEaten(score: number) {
+    this.score = score;
+  }
 
   userActions: {
     action: string;
