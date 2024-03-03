@@ -17,13 +17,13 @@ export class IntroPageComponent {
   emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
   checkInputs() {
     if (this.name === '' && this.email === '') {
-      this.errorMessage = 'Name and email are required';
+      this.errorMessage = 'NAME AND EMAIL IS REQUIRED';
     } else if (this.name === '') {
-      this.errorMessage = 'Name is required';
+      this.errorMessage = 'NAME IS REQUIRED';
     } else if (this.email === '') {
-      this.errorMessage = 'Email is required';
+      this.errorMessage = 'EMAIL IS REQUIRED';
     } else if (!this.emailPattern.test(this.email)) {
-      this.errorMessage = 'Email is invalid';
+      this.errorMessage = 'EMAIL IS INVALID';
     } else {
       this.errorMessage = '';
       this.isButtonDisabled = false;
