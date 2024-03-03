@@ -1,0 +1,19 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../assets/pexels-veeterzy-38136.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.btn-back-to-menu {
+  position: absolute; /* Ustawienie pozycji przycisku na absolutną */
+  left: 20px;
+  top: 20px;
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+}

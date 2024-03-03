@@ -75,7 +75,6 @@ export class SnakePanelComponent {
       this.foodEaten.emit(this.score);
     } else {
       this.isTimerRunning = false;
-      this.timerStart();
       this.updateTimer.emit({
         seconds: this.seconds,
         minutes: this.minutes,

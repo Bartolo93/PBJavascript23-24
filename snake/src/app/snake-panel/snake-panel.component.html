@@ -4,38 +4,45 @@
   (gameOver)="onGameOver()"
 ></ngx-snake>
 <br />
-<button (click)="game.actionUp()">Up</button>
-<button (click)="game.actionDown()">Down</button>
-<button (click)="game.actionLeft()">Left</button>
-<button (click)="game.actionRight()">Right</button>
+<div class="navigateSnakeButtons">
+  <div class="upDownButtonsContainer">
+    <button (click)="game.actionUp()">Up</button>
+    <button (click)="game.actionDown()">Down</button>
+  </div>
+  <div class="leftRightButtonsContainer">
+    <button (click)="game.actionLeft()">Left</button>
+    <button (click)="game.actionRight()">Right</button>
+  </div>
+</div>
 
 <br />
-<p>
+
+<div class="controlButtons">
   <button
-    (click)="game.actionStart()"
-    (click)="timerStart()"
-    (click)="handleButtonClick('Start Game')"
+    (click)="game.actionStart(); timerStart(); handleButtonClick('Start Game')"
   >
     Start
   </button>
-</p>
-<p>
+
   <button
-    (click)="game.actionStop()"
-    (click)="handleButtonClick('Pause')"
-    (click)="game.actionStop()"
-    (click)="timerStop()"
+    (click)="
+      game.actionStop();
+      handleButtonClick('Pause');
+      game.actionStop();
+      timerStop()
+    "
   >
     Stop
   </button>
-</p>
-<p>
+
   <button
-    (click)="game.actionReset()"
-    (click)="handleButtonClick('Reset')"
-    (click)="game.actionReset()"
-    (click)="timerReset()"
+    (click)="
+      game.actionReset();
+      handleButtonClick('Reset');
+      game.actionReset();
+      timerReset()
+    "
   >
     Reset
   </button>
-</p>
+</div>
