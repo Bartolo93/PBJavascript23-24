@@ -1,15 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SnakePanelComponent } from '../snake-panel/snake-panel.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { GameInfoComponent } from '../game-info/game-info.component';
+import { SnakePanelComponent } from '../snake-panel/snake-panel.component';
 
 @Component({
   selector: 'app-game-page',
   standalone: true,
-  imports: [SnakePanelComponent, GameInfoComponent],
+  imports: [GameInfoComponent, SnakePanelComponent],
   templateUrl: './game-page.component.html',
-  styleUrl: './game-page.component.scss',
+  styleUrls: ['./game-page.component.scss'],
 })
-export class GamePageComponent {
+export class GamePageComponent implements OnInit {
   @Input() userName: string = '';
   score: number = 0;
   time: { seconds: number; minutes: number; hours: number } = {
@@ -18,16 +20,23 @@ export class GamePageComponent {
     hours: 0,
   };
 
+  constructor(private location: Location, private router: Router) {}
+
+  ngOnInit() {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras?.state) {
+      this.userName = navigation.extras.state['name'];
+    }
+  }
+
   updateTime(time: { seconds: number; minutes: number; hours: number }) {
     this.time = time;
   }
 
-  @Input() welcomePageShouldBeVisible: boolean = false;
-  @Output() pageChange = new EventEmitter<void>();
-
   changePage() {
-    this.pageChange.emit();
+    this.location.back();
   }
+
   onFoodEaten(score: number) {
     this.score = score;
   }

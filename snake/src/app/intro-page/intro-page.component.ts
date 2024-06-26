@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -6,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './intro-page.component.html',
-  styleUrl: './intro-page.component.scss',
+  styleUrls: ['./intro-page.component.scss'],
 })
 export class IntroPageComponent {
   name = '';
@@ -15,6 +16,9 @@ export class IntroPageComponent {
   isButtonDisabled = true;
   errorMessage = '';
   emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+  constructor(private router: Router) {}
+
   checkInputs() {
     if (this.name === '' && this.email === '') {
       this.errorMessage = 'NAME AND EMAIL IS REQUIRED';
@@ -36,13 +40,7 @@ export class IntroPageComponent {
   submit() {
     if (this.name && this.email) {
       this.userDataSubmitted.emit({ name: this.name, email: this.email });
+      this.router.navigate(['/game'], { state: { name: this.name } });
     }
-  }
-
-  @Input() welcomePageShouldBeVisible: boolean = false;
-  @Output() pageChange = new EventEmitter<void>();
-
-  changePage() {
-    this.pageChange.emit();
   }
 }

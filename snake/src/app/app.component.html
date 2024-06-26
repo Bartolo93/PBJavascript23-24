@@ -1,12 +1,1 @@
-<app-intro-page
-  *ngIf="welcomePageShouldbeVivible"
-  (userDataSubmitted)="handleUserData($event)"
-  [welcomePageShouldBeVisible]="welcomePageShouldbeVivible"
-  (pageChange)="changePage()"
-></app-intro-page>
-<app-game-page
-  *ngIf="!welcomePageShouldbeVivible"
-  [userName]="user.name"
-  [welcomePageShouldBeVisible]="welcomePageShouldbeVivible"
-  (pageChange)="changePage()"
-></app-game-page>
+<router-outlet></router-outlet>
