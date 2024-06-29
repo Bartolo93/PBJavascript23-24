@@ -16,7 +16,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class IntroPageComponent implements OnInit {
   private _fb = inject(FormBuilder);
 
-  title: string = 'ngTETRIS GAME';
+  title: string = 'SNAKE !';
   selectedTheme: string = '';
 
   public userForm = this._fb.group({

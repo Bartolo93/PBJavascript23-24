@@ -8,59 +8,55 @@
   padding: 50px;
   border-radius: 20px;
   color: #000;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-family: "Press Start 2P";
-  }
-
-  img {
-    width: 100px;
-    margin: 30px 0px;
+    color: #333;
   }
   form {
-    width: 50%;
-    margin: auto;
-    text-align: left;
+    width: 70%;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    label {
-      font-size: 20px;
-      width: 100%;
-      margin-top: 5px;
-    }
-    input,
+    label,
     select {
-      width: 95%;
-      padding: 10px 0px 10px 15px;
-      font-size: 20px;
+      font-size: 16px;
+      color: #666;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
       border-radius: 5px;
-      border: 1px solid black;
-      background-color: transparent;
-    }
-    select {
-      width: 100%;
-      background-color: transparent;
-    }
-    .error-message {
-      color: #ff004d;
-      text-align: start;
-      width: 100%;
-      margin: 0;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
     }
   }
-
-  button {
-    background-color: #a7d397;
-    cursor: pointer;
-    border: none;
-    width: 250px;
-    font-weight: 550;
-    padding: 15px 20px;
-    border-radius: 20px;
+  ul.grid-container {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
-    font-family: "Press Start 2P";
-    justify-self: center;
+  }
+  li.grid-item {
+    background-color: #e8e8e8;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 18px;
+  }
+  .name,
+  .score {
+    flex: 1;
+    text-align: center;
   }
 }
 
@@ -69,5 +65,23 @@
 }
 
 .dark-page {
-  background-color: #9893a4;
+  background-color: #454545;
+  color: #fff;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: 250px;
+  font-weight: 550;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #367c39;
 }

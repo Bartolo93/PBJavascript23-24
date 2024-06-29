@@ -5,9 +5,6 @@
   }"
 >
   <h1>{{ title }}</h1>
-  <button class="btnHighscortes" (click)="goToScorePage()">
-    See highscores
-  </button>
   <img src="../../assets/snakeImageLittleDimension.png" alt="Snake Image" />
   <form [formGroup]="userForm" (submit)="onSubmit()">
     <label for="name">Name</label>
@@ -37,7 +34,4 @@
 
     <button [disabled]="!userForm.valid">START</button>
   </form>
-  <button class="btnHighscortes" (click)="goToScorePage()">
-    See highscores
-  </button>
 </div>

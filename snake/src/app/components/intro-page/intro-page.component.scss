@@ -1,8 +1,8 @@
 .light-page,
 .dark-page {
-  width: 60%;
+  width: 100%;
   min-width: 350px;
-  max-width: 700px;
+
   margin: auto;
   text-align: center;
   padding: 50px;
@@ -10,7 +10,6 @@
   color: #000;
   h1 {
     font-size: 60px;
-    font-family: "Press Start 2P";
   }
 
   img {
@@ -51,7 +50,7 @@
   }
 
   button {
-    background-color: #133f03;
+    background-color: #327b18;
     cursor: pointer;
     border: none;
     width: 250px;

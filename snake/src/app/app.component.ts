@@ -18,11 +18,4 @@ export class AppComponent {
     private _router: Router,
     private userService: UserService
   ) {}
-
-  userName = '';
-  user = { name: '', email: '' };
-
-  handleUserData(userData: { name: string; email: string }) {
-    this.user = userData;
-  }
 }

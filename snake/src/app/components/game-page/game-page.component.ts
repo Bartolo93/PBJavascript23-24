@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { GameInfoComponent } from '../game-info/game-info.component';
@@ -12,8 +12,9 @@ import { SnakePanelComponent } from '../snake-panel/snake-panel.component';
   styleUrls: ['./game-page.component.scss'],
 })
 export class GamePageComponent implements OnInit {
-  @Input() userName: string = '';
+  userName: string = '';
   score: number = 0;
+  selectedTheme: string = 'light'; // Domyślna wartość; ustaw to odpowiednio
   time: { seconds: number; minutes: number; hours: number } = {
     seconds: 0,
     minutes: 0,
@@ -39,6 +40,10 @@ export class GamePageComponent implements OnInit {
 
   onFoodEaten(score: number) {
     this.score = score;
+  }
+
+  goToScorePage() {
+    this.router.navigate(['/scores', this.selectedTheme]);
   }
 
   userActions: {

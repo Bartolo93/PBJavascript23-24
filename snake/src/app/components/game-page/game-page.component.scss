@@ -3,17 +3,60 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background-image: url("./../../../assets/pexels-veeterzy-38136.jpg");
   background-size: cover;
   position: relative;
+  padding-top: 80px;
 }
 
 .btn-back-to-menu {
-  position: absolute; /* Ustawienie pozycji przycisku na absolutną */
-  left: 20px;
+  position: fixed;
   top: 20px;
+  left: 20px;
   width: 120px;
   height: 40px;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnHighscortes {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: 60px;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navigate-buttons {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigate-button {
+  margin: 10px 0;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  width: 100px;
 }
