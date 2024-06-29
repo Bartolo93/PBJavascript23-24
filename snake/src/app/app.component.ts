@@ -9,4 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.scss'],
   standalone: true,
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'snake';
+}

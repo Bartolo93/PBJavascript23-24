@@ -2,15 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface Highscore {
+  name: string;
+  score: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class HighscoresService {
-  private apiUrl = 'https://your-api-url'; // Replace with your API URL
+  private url = 'https://scores.chrum.it/snake';
 
   constructor(private http: HttpClient) {}
 
-  getHighscores(game: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/scores/${game}`);
+  getHighscores(): Observable<Highscore[]> {
+    return this.http.get<Highscore[]>(this.url);
   }
 }

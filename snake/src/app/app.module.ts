@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { routes } from './app.routes';
+import { HighscoresService } from './services/highscores.service
 
 @NgModule({
   declarations: [AppComponent, IntroPageComponent, GamePageComponent],

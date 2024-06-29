@@ -1,0 +1,12 @@
+.highscores {
+  margin: 20px;
+}
+
+.highscores ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.highscores li {
+  padding: 5px 0;
+}
