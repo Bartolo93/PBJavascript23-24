@@ -1,0 +1,48 @@
+<ngx-snake
+  #game
+  (foodEaten)="onFoodEaten()"
+  (gameOver)="onGameOver()"
+></ngx-snake>
+<br />
+<div class="navigateSnakeButtons">
+  <div class="upDownButtonsContainer">
+    <button (click)="game.actionUp()">Up</button>
+    <button (click)="game.actionDown()">Down</button>
+  </div>
+  <div class="leftRightButtonsContainer">
+    <button (click)="game.actionLeft()">Left</button>
+    <button (click)="game.actionRight()">Right</button>
+  </div>
+</div>
+
+<br />
+
+<div class="controlButtons">
+  <button
+    (click)="game.actionStart(); timerStart(); handleButtonClick('Start Game')"
+  >
+    Start
+  </button>
+
+  <button
+    (click)="
+      game.actionStop();
+      handleButtonClick('Pause');
+      game.actionStop();
+      timerStop()
+    "
+  >
+    Stop
+  </button>
+
+  <button
+    (click)="
+      game.actionReset();
+      handleButtonClick('Reset');
+      game.actionReset();
+      timerReset()
+    "
+  >
+    Reset
+  </button>
+</div>

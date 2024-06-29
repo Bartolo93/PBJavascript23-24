@@ -1,0 +1,43 @@
+<div
+  [ngClass]="{
+    'dark-page': selectedTheme === 'dark',
+    'light-page': selectedTheme === 'light'
+  }"
+>
+  <h1>{{ title }}</h1>
+  <button class="btnHighscortes" (click)="goToScorePage()">
+    See highscores
+  </button>
+  <img src="../../assets/snakeImageLittleDimension.png" alt="Snake Image" />
+  <form [formGroup]="userForm" (submit)="onSubmit()">
+    <label for="name">Name</label>
+    <input name="name" type="text" formControlName="name" />
+    @if(userForm.controls['name'].touched && userForm.controls['name'].invalid)
+    { @if(userForm.get('name')!.errors?.['required']){
+    <p class="error-message">Name is required</p>
+    } @if(userForm.get('name')!.errors?.['minlength']){
+    <p class="error-message">Name must be at least 5 characters long</p>
+    } }
+    <label for="token">Token</label>
+    <input name="token" formControlName="token" />
+    @if(userForm.controls['token'].touched &&
+    userForm.controls['token'].invalid) {
+    @if(userForm.get('token')!.errors?.['required']){
+    <p class="error-message">Token is required</p>
+    } @if(userForm.get('token')!.errors?.['minlength']){
+    <p class="error-message">Token must be at least 4</p>
+    } @if(userForm.get('token')!.errors?.['invalid']){
+    <p class="error-message">Invalid token</p>
+    } }
+    <label for="theme">Theme</label>
+    <select formControlName="selectedTheme" name="theme" id="">
+      <option value="light">light</option>
+      <option value="dark">dark</option>
+    </select>
+
+    <button [disabled]="!userForm.valid">START</button>
+  </form>
+  <button class="btnHighscortes" (click)="goToScorePage()">
+    See highscores
+  </button>
+</div>
