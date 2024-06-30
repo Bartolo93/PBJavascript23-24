@@ -13,7 +13,7 @@
   }
 
   img {
-    width: 100px;
+    width: 200px;
     margin: 30px 0px;
   }
   form {
@@ -51,6 +51,7 @@
 
   button {
     background-color: #327b18;
+    color: white;
     cursor: pointer;
     border: none;
     width: 250px;
@@ -58,7 +59,6 @@
     padding: 15px 20px;
     border-radius: 20px;
     margin-top: 20px;
-    font-family: "Press Start 2P";
     justify-self: center;
   }
 }
@@ -68,5 +68,5 @@
 }
 
 .dark-page {
-  background-color: #5c5470;
+  background-color: #bdbdbd;
 }

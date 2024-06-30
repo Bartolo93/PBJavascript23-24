@@ -1,13 +1,16 @@
 <div
-  [ngClass]="{'dark-page': selectedTheme === 'dark', 'light-page': selectedTheme === 'light'}"
+  [ngClass]="{
+    'dark-page': selectedTheme === 'dark',
+    'light-page': selectedTheme === 'light'
+  }"
 >
   <h1>Top scores:</h1>
 
   <form [formGroup]="sortForm">
-    <label for="sortOrder">Sort scores from: </label>
+    <label for="sortOrder">Show scores: </label>
     <select id="sortOrder" formControlName="sortOrder">
-      <option value="desc">highest</option>
-      <option value="asc">lowest</option>
+      <option value="desc">highest first</option>
+      <option value="asc">lowest first</option>
     </select>
   </form>
 

@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit, inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
-
 import { NgClass } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -75,9 +74,5 @@ export class IntroPageComponent implements OnInit {
 
   goToGamePage() {
     this._router.navigate(['/game/', this.userForm.value.selectedTheme!]);
-  }
-
-  goToScorePage() {
-    this._router.navigate(['/scores', this.userForm.value.selectedTheme!]);
   }
 }

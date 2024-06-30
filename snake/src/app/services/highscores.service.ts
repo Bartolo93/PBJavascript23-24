@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, interval } from 'rxjs';
 import { switchMap, startWith } from 'rxjs/operators';
 
-export interface IScoresListItem {
+export interface ScoresListItem {
   name: string;
   score: number;
 }
@@ -16,7 +16,7 @@ export class ScoreService {
   private _URL = 'https://scores.chrum.it/scores/snake';
   private _POST_SCORE_URL = 'https://scores.chrum.it/scores';
   public score$ = this.score.asObservable();
-  public scores$!: Observable<IScoresListItem[]>;
+  public scores$!: Observable<ScoresListItem[]>;
 
   constructor(private _http: HttpClient) {
     this.scores$ = interval(3000).pipe(
@@ -44,8 +44,8 @@ export class ScoreService {
     });
   }
 
-  public getScores(): Observable<IScoresListItem[]> {
-    return this._http.get<Array<IScoresListItem>>(this._URL, {
+  public getScores(): Observable<ScoresListItem[]> {
+    return this._http.get<Array<ScoresListItem>>(this._URL, {
       headers: { Accept: 'application/json' },
     });
   }

@@ -13,23 +13,23 @@
     { @if(userForm.get('name')!.errors?.['required']){
     <p class="error-message">Name is required</p>
     } @if(userForm.get('name')!.errors?.['minlength']){
-    <p class="error-message">Name must be at least 5 characters long</p>
+    <p class="error-message">Name must have minimum 5 characters long</p>
     } }
-    <label for="token">Token</label>
+    <label for="token">Student ID</label>
     <input name="token" formControlName="token" />
     @if(userForm.controls['token'].touched &&
     userForm.controls['token'].invalid) {
     @if(userForm.get('token')!.errors?.['required']){
-    <p class="error-message">Token is required</p>
+    <p class="error-message">Student ID is required</p>
     } @if(userForm.get('token')!.errors?.['minlength']){
-    <p class="error-message">Token must be at least 4</p>
+    <p class="error-message">Student ID must have minimum 4</p>
     } @if(userForm.get('token')!.errors?.['invalid']){
-    <p class="error-message">Invalid token</p>
+    <p class="error-message">Invalid student ID</p>
     } }
-    <label for="theme">Theme</label>
+    <label for="theme">Page color</label>
     <select formControlName="selectedTheme" name="theme" id="">
       <option value="light">light</option>
-      <option value="dark">dark</option>
+      <option value="dark">shadow</option>
     </select>
 
     <button [disabled]="!userForm.valid">START</button>

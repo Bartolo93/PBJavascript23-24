@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {
   ScoreService,
-  IScoresListItem,
+  ScoresListItem,
 } from '../../services/highscores.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgClass, NgFor } from '@angular/common';
@@ -15,7 +15,7 @@ import { NgClass, NgFor } from '@angular/common';
   styleUrls: ['./scorePageComponents.scss'],
 })
 export class ScorePageComponent implements OnInit {
-  scores: IScoresListItem[] = [];
+  scores: ScoresListItem[] = [];
   sortForm: FormGroup;
   selectedTheme: string = '';
 
@@ -47,10 +47,7 @@ export class ScorePageComponent implements OnInit {
     });
   }
 
-  sortScores(
-    data: IScoresListItem[],
-    order: 'asc' | 'desc'
-  ): IScoresListItem[] {
+  sortScores(data: ScoresListItem[], order: 'asc' | 'desc'): ScoresListItem[] {
     data = data.sort((a, b) => b.score - a.score).slice(0, 10);
     return data.sort((a, b) =>
       order === 'asc' ? a.score - b.score : b.score - a.score
